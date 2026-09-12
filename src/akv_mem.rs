@@ -34,16 +34,16 @@ fn main() {
     match action {
         "get" => match store.get(key).unwrap() {
             None => eprintln!("{:?} not found", key),
-            Some(value) => println!("Get result in: {:?}", value),
+            Some(value) => println!("Get result in: {:?}", String::from_utf8(value)),
         },
         "delete" => store.delete(key).unwrap(),
         "insert" => {
             let value = maybe_value.unwrap();
-            store.update(key, value).unwrap();
+            store.update(key, value.as_bytes()).unwrap();
         }
         "update" => {
             let value = maybe_value.unwrap();
-            store.insert(key, value).unwrap();
+            store.insert(key, value.as_bytes()).unwrap();
         }
         _ => eprintln!("{}", USAGE),
     }
