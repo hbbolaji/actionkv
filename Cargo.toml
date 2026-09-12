@@ -20,3 +20,7 @@ path = "src/akv_mem.rs"
 [[bin]]
 name = "test_endian"
 path = "src/read_write_endian.rs"
+
+[[bin]]
+name = "parity_bit"
+path = "src/parity_bit.rs"
